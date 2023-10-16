@@ -49,7 +49,7 @@ const displayChangedValue = computed(() => {
   return "";
 });
 
-watch([amount, currency, amount], async ([newAmount, newCurrency]) => {
+watch([amount, currency], async ([newAmount, newCurrency]) => {
   lastValue = undefined;
   currentValue.value = undefined;
 
