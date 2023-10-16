@@ -26,18 +26,18 @@ Everything is rendered in the center horizontally by using flexbox
 
 ### Crypto conversion logic
 
-- `fetchValue`: The conversion is done by using the `fetch` API to get the conversion rate from the API endpoint. Then update the last value and current value in the state.
+- `fetchValue`: The conversion is done by using the `fetch` API to get the conversion rate from the API endpoint. Then update the lastValue and currentValue.
 
-- `intervalId`: The interval is set up by using `setInterval` to call `fetchValue` every `REFRESH_TIME` milliseconds. This will be cleaned on up unmount lifecycle to avoid memory leak.
+- `intervalId`: The interval is set up by using `setInterval` to call `fetchValue` every `REFRESH_TIME` milliseconds. This will be cleaned on up unmount lifecycle to avoid memory leaks.
 
-- There is a single watcher to watch the changes of `amount` and `currency` in the state. When there are changes in either of them, lastValue and currentValue will be reset and the `fetchValue` will be called to fetch the new conversion rate. The current interval will be cleared if available and a new interval will be set up.
+- There is a single watcher to watch the changes in `amount` and `currency` values. When there are changes in either of them, lastValue and currentValue will be reset and the `fetchValue` will be called to fetch the new conversion rate. The current interval will be cleared if available and a new interval will be set up accordingly.
 
-- There are two computed values `changedValue` and `displayChangedValue` to avoid clustering the template with logic. `changedValue` is the difference between lastValue and currentValue. `displayChangedValue` is the formatted value of `changedValue` with the up / down symbols. The `changedValue` is also used to determine the color of the result.
+- There are two computed values `changedValue` and `displayChangedValue` to avoid cluttering the template with logic. `changedValue` is the difference between lastValue and currentValue. `displayChangedValue` is the formatted value of `changedValue` with the up / down symbols. The `changedValue` is also used to determine the colour of the result.
 
 ### Nice to have
 
 - [ ] Add a loading indicator
 - [ ] Add a refresh button
-- [ ] Add a error message when the API call fails
+- [ ] Add an error message when the API call fails
 - [ ] Add a debounce function to avoid calling the API too many times when the user is typing
 - [ ] Add test coverage
