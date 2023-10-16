@@ -28,7 +28,7 @@ Everything is rendered in the center horizontally by using flexbox
 
 - `fetchValue`: The conversion is done by using the `fetch` API to get the conversion rate from the API endpoint. Then update the lastValue and currentValue.
 
-- `intervalId`: The interval is set up by using `setInterval` to call `fetchValue` every `REFRESH_TIME` milliseconds. This will be cleaned on up unmount lifecycle to avoid memory leaks.
+- `intervalId`: The interval is set up by using `setInterval` to call `fetchValue` every `REFRESH_TIME` milliseconds. This will be cleaned up on unmount lifecycle to avoid memory leaks.
 
 - There is a single watcher to watch the changes in `amount` and `currency` values. When there are changes in either of them, lastValue and currentValue will be reset and the `fetchValue` will be called to fetch the new conversion rate. The current interval will be cleared if available and a new interval will be set up accordingly.
 
