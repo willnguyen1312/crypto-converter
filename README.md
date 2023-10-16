@@ -11,8 +11,8 @@
 
 - amount: `number` - The amount of the currency to convert.
 - currency: `string` - The currency to convert from.
-- lastValue: `number` - The last computed value of the conversion.
 - currentValue: `number` - The current computed value of the conversion.
+- lastValue: `number` - The last computed value of the conversion.
 
 ### Rendering
 

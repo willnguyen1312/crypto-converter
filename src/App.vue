@@ -8,10 +8,10 @@ const REFRESH_TIME = 10000; // 10 seconds
 const currencies = ["USD", "EUR", "GBP", "CNY", "JPY"] as const;
 type Currency = (typeof currencies)[number];
 
-const lastValue = ref<number>();
 const currentValue = ref<number>();
 const amount = ref<number>();
 const currency = ref<Currency>(currencies[0]);
+let lastValue: number | undefined = undefined;
 let intervalId: number | null = null;
 
 const getRoundedValue = (value: number) => Math.round(value * 100) / 100;
@@ -23,7 +23,7 @@ const fetchValue = async (amount: number, currency: Currency) => {
   if (response.ok) {
     const data = (await response.json()) as JSONResponse;
 
-    lastValue.value = currentValue.value;
+    lastValue = currentValue.value;
     currentValue.value = getRoundedValue(data.value * amount);
     return;
   }
@@ -32,8 +32,8 @@ const fetchValue = async (amount: number, currency: Currency) => {
 };
 
 const changedValue = computed(() => {
-  if (lastValue.value && currentValue.value) {
-    return getRoundedValue(currentValue.value - lastValue.value);
+  if (currentValue.value && lastValue) {
+    return getRoundedValue(currentValue.value - lastValue);
   }
 
   return 0;
@@ -50,7 +50,7 @@ const displayChangedValue = computed(() => {
 });
 
 watch([amount, currency, amount], async ([newAmount, newCurrency]) => {
-  lastValue.value = undefined;
+  lastValue = undefined;
   currentValue.value = undefined;
 
   if (intervalId) {
