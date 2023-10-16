@@ -36,6 +36,6 @@ Everything is rendered in the center horizontally by using flexbox
 
 ### Nice to have
 
-- [x] Add a loading indicator
-- [x] Add a refresh button
-- [x] Add a error message when the API call fails
+- [ ] Add a loading indicator
+- [ ] Add a refresh button
+- [ ] Add a error message when the API call fails
