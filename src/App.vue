@@ -49,7 +49,7 @@ const displayChangedValue = computed(() => {
   return "";
 });
 
-watch([amount, currency], async ([newAmount, newCurrency]) => {
+watch([amount, currency], ([newAmount, newCurrency]) => {
   lastValue = undefined;
   currentValue.value = undefined;
 
@@ -59,9 +59,9 @@ watch([amount, currency], async ([newAmount, newCurrency]) => {
   }
 
   if (newAmount && newAmount > 0) {
-    await fetchValue(newAmount, newCurrency);
+    fetchValue(newAmount, newCurrency);
     intervalId = setInterval(() => {
-      amount.value && fetchValue(amount.value, currency.value);
+      fetchValue(newAmount, newCurrency);
     }, REFRESH_TIME);
   }
 });
