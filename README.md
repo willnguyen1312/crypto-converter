@@ -39,3 +39,5 @@ Everything is rendered in the center horizontally by using flexbox
 - [ ] Add a loading indicator
 - [ ] Add a refresh button
 - [ ] Add a error message when the API call fails
+- [ ] Add a debounce function to avoid calling the API too many times when the user is typing
+- [ ] Add test coverage
