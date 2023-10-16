@@ -34,6 +34,12 @@ Everything is rendered in the center horizontally by using flexbox
 
 - There are two computed values `changedValue` and `displayChangedValue` to avoid cluttering the template with logic. `changedValue` is the difference between lastValue and currentValue. `displayChangedValue` is the formatted value of `changedValue` with the up / down symbols. The `changedValue` is also used to determine the colour of the result.
 
+### Test Cases
+
+- Amount and currency fields are required and must be valid before the result is fetched and displayed
+- The converted amount should refresh every ten seconds, or whenever the user changes the input amount or currency
+- The price change since the last interval should be shown adjacent to the converted amount - this should be highlighted green with an up arrow if the price increased since the last interval, or red with a down arrow if the price decreased.
+
 ### Nice to have
 
 - [ ] Add a loading indicator
