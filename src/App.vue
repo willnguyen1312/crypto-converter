@@ -75,7 +75,7 @@ onUnmounted(() => {
 
 <template>
   <form class="inputForm">
-    <input v-model="amount" />
+    <input type="number" v-model="amount" />
 
     <select v-model="currency">
       <option v-for="currency in currencies" :value="currency">
