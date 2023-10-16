@@ -1,6 +1,6 @@
-# [Crypto Converter](https://frontendeval.com/questions/crypto-converter)
+# [Crypto Converter Solution](https://frontendeval.com/questions/crypto-converter)
 
-## Solution
+## [Stackblitz playground](https://stackblitz.com/github/willnguyen1312/crypto-converter)
 
 ### Constants
 
